@@ -136,7 +136,7 @@ class NavesPasajeros inherits Nave{
 class NavesDeCombate inherits Nave{
   var estaInvisible
   var misilesDesplegados
-  const mensajesEmitidos
+  const mensajesEmitidos = []
 
   method ponerseVisible(){
     estaInvisible = false
