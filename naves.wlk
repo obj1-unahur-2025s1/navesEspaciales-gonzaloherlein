@@ -168,9 +168,9 @@ class NavesDeCombate inherits Nave{
 
   method ultimoMensajeEmitido() = mensajesEmitidos.last()
 
-  method esEscueta() = mensajesEmitidos.any({m => m.length() > 30})
+  method esEscueta() = !mensajesEmitidos.any({m => m.length() > 30})
 
-  method emitioMensaje(mensaje) = mensajesEmitidos.find({m => m == mensaje})
+  method emitioMensaje(mensaje) = mensajesEmitidos.contains(mensaje)
 
   override method prepararViaje(){
     self.ponerseVisible()
