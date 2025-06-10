@@ -4,11 +4,11 @@ class Nave{
   var combustible
 
   method acelerar(cuanto){
-    velocidad += (velocidad + cuanto).min(100000)
+    velocidad = (velocidad + cuanto).min(100000)
   }
 
   method desacelerar(cuanto){
-    velocidad -= (velocidad - cuanto).max(0)
+    velocidad = (velocidad - cuanto).max(0)
   }
 
   method irHaciaElSol(){
@@ -101,7 +101,7 @@ class NavesPasajeros inherits Nave{
   }
 
   method descargarComida(cantDeComida){
-    comida -= cantDeComida
+    comida = (comida - cantDeComida).max(0)
     cantidadDeComidaServida += cantDeComida
   }
 
@@ -110,7 +110,7 @@ class NavesPasajeros inherits Nave{
   }
 
   method descargarBebida(cantDeBebida){
-    bebida -= cantDeBebida
+    bebida = (bebida - cantDeBebida).max(0)
   }
 
   override method prepararViaje(){
@@ -134,19 +134,19 @@ class NavesPasajeros inherits Nave{
 }
 
 class NavesDeCombate inherits Nave{
-  var visible
+  var estaInvisible
   var misilesDesplegados
   const mensajesEmitidos
 
   method ponerseVisible(){
-    visible = true
+    estaInvisible = false
   }
 
   method ponerseInvisible(){
-    visible = false
+    estaInvisible = true
   }
   
-  method estaInvisible() = !visible
+  method estaInvisible() = estaInvisible
 
   method desplegarMisiles(){
     misilesDesplegados = true
